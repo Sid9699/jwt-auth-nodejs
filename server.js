@@ -1,10 +1,17 @@
 const express = require("express");
+
 const app = express();
+
+const port = 4000;
+
+app.use(express.json());
+
+app.use("/auth", require("./routes/auth"));
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-app.listen(4000, () => {
+app.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });
